@@ -1,0 +1,254 @@
+1. Topic Business Loan
+
+package assignment2;
+
+import java.util.Scanner;
+
+public class BusinessLoanIfElse {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int total = 0;
+		Scanner sc = new Scanner (System.in);
+		System.out.println("Enter your name");
+		String name = sc.nextLine();
+		System.out.println("Enter your number phone");
+		int phone = sc.nextInt();
+		System.out.println("Enter your age");
+		int age = sc.nextInt();
+		
+		System.out.println("");
+		System.out.println("Welcome to Maybank, Malaysia's largest financial services group and the leading banking group in South East Asia.");
+		System.out.println("----------------------------------------------------------");
+		System.out.println("This is information about SME Clean Loan ");
+		System.out.println("----------------------------------------------------------");
+		System.out.println("Eligibility:");
+		System.out.println("-Below RM25 million annual sales turnover");
+		System.out.println("-Below RM5 million outstanding loan/financing with Maybank");
+		System.out.println("-Malaysian-owned registered company");
+		System.out.println("-More than 1 year in operation");
+		System.out.println("----------------------------------------------------------");
+		System.out.println("");
+		System.out.println("There are 2 types of application method: ");
+		System.out.println("1.  By online application");
+		System.out.println("2.  By branch application");
+		
+		System.out.println("");
+		System.out.println("Enter 1 to continue: ");
+		int next = sc.nextInt();
+		
+		System.out.println("");
+		System.out.println("Not sure which application method suits you better? Here are the key differences to help you decide:");
+		System.out.println("");
+		System.out.println("1.  Online Application");
+		System.out.println("    a) Financing amount: RM10,000 – RM250,000");
+		System.out.println("    b) Approval time: • 10 minutes if you are an existing Maybank customer");
+		System.out.println("                      • Approximately 48 hours if you are new to Maybank");
+		System.out.println("    c) Required documents: i) No documents required if you are an existing Maybank customer");
+		System.out.println("                           ii) If you are new to Maybank:");
+		System.out.println("                             •	NRIC of Directors /Shareholders/Proprietors /Partners/ guarantors" );
+		System.out.println("                             •	Business Registration documents");
+		System.out.println("    d) Security requirements: None");
+		System.out.println("    e) Financing tenure: Up to 5 years");
+		System.out.println("    f) Business operation period: Minimum 1 year");
+		
+		System.out.println("");
+		System.out.println("2.  Branch Application");
+		System.out.println("    a) Financing amount: RM50,001– RM1,500,000");
+		System.out.println("    b) Approval time: Determined on a case-by-case basis");
+		System.out.println("    c) Required documents:  •	NRIC of Directors /Shareholders/Proprietors /Partners/ guarantors" );
+		System.out.println("                            •	Business Registration documents");
+		System.out.println("                            •	Latest 6 months bank statement from any bank");
+		System.out.println("    d) Security requirements:  •	Joint and Several Guarantee from all the directors (for Sdn. Bhd. only)");
+		System.out.println("                               •	Corporate Guarantee (from Parent companies, if applicable)");
+		System.out.println("    e) Financing tenure: Up to 7 years");
+		System.out.println("    f) Business operation period: Minimum 3 year");
+		
+		System.out.println("");
+		System.out.println("The interest rate is 4.5%.");
+		System.out.println("No collateral needed.");
+		System.out.println("");
+				
+		System.out.println("Do you have outstanding loan with Maybank (1 for yes  | 2 for no): ");
+		int answer = sc.nextInt();
+				
+		if(answer ==  1) {
+			System.out.println("How many loan did you make before: ");
+			int loan = sc.nextInt();
+			
+			for (int i = 1; i <= loan; i++) {
+				System.out.println("Enter amount of " + i + " loan: ");
+				int LoanAmount = sc.nextInt();
+				
+			total += LoanAmount;
+			}
+			System.out.println("Your total outstanding loan is " + total);
+		}		
+		if (total > 5000000) 
+			System.out.println("Sorry your outstanding loan is greater than 5 millions. You can't apply SME Clean Loan.");
+		
+		else 
+			System.out.println("Enter business operation period (in months): ");
+			int period = sc.nextInt();
+		
+			System.out.println("Enter your annual revenue: ");
+			int revenue = sc.nextInt();
+		
+		if ((period >= 12) && (revenue <= 25000000)) {
+		System.out.println("Enter the amount of loan: ");
+		int amount = sc.nextInt();
+		System.out.println("Enter financing tenure: ");
+		int tenure = sc.nextInt();
+		
+		if ((amount >= 10000) && (amount <= 250000) && (tenure <= 5)){
+			System.out.println("You can apply SME Clean Loan via online application using this link (https://www.maybank2u.com.my/home/m2u/common/page/apply/RSME.do?productType=RSME)");	
+		}
+		else if ((amount >= 50001) && (amount <= 1500000) && (tenure <= 7)) {
+			System.out.println("You can apply SME Clean Loan via branch application.");
+		
+		double interest = 0.045;
+		System.out.println("");
+		double monthlyPayment = amount * (interest / 12) / ( 1 - 1 / Math.pow(1 + (interest / 12), tenure * 12));
+		double totalPayment = monthlyPayment * 12 * tenure;
+		
+		System.out.println("------------------------------------");
+		System.out.print("Monthly payment is RM");
+		System.out.printf("%.2f",  monthlyPayment);
+		System.out.print("\nTotal payment is RM");
+		System.out.printf("%.2f", totalPayment);
+		System.out.println("\n------------------------------------");
+		
+		System.out.println("");
+		System.out.println("***********************************************************************************************");
+		System.out.println(name + ", the amount you want to apply is RM" + amount);
+		System.out.print("The monthly payment for " + tenure + " years is RM");
+		System.out.printf("%.2f",  monthlyPayment);
+		System.out.print(" and total payment is RM");
+		System.out.printf("%.2f", totalPayment);
+		System.out.println("");
+		System.out.println(name + ", thank you for your time.");
+		System.out.println("***********************************************************************************************");
+		}
+		else 
+			System.out.println("Sorry. You didn't meet the condition for both application.");
+		}
+		else
+			System.out.println("Sorry. You cannot apply SME Clean Loan");
+	
+		sc.close();
+	}
+	
+}
+
+2. Topic Personal Account
+
+
+3. Topic Credit Card
+
+package assigmentGroup;
+
+import java.util.Scanner;
+
+public class CreditCard3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String name;
+		
+		
+		double limit1 = 40000;// limit for credit card type
+		double limit2 = 80000;
+		double limit3 = 65000;
+		
+		Scanner scanMe = new Scanner (System.in);
+		
+		System.out.println("Enter your name:");// follow the name at credit cards
+		name = scanMe.nextLine();
+		
+		System.out.println("Enter your Credit Card Number");// to know what credit card uses
+		int CCnum1 = scanMe.nextInt();// type each CCnum 4 num // example 2456
+		int CCnum2 = scanMe.nextInt();
+		int CCnum3 = scanMe.nextInt();
+		int CCnum4 = scanMe.nextInt();
+		
+		System.out.println("Enter your expiration date");// to make sure the credit card still can use // example is 2721
+		int  ED = scanMe.nextInt();
+		
+		System.out.println("Enter your CCV");//to confirm that the credit card is correct
+		int CCV = scanMe.nextInt();
+		
+		
+		System.out.println("Acess granted");
+		
+		System.out.println("You choose CIMB e Credit Card");
+		
+
+		// purchases made in 1 month
+		double smartphone = 2000;
+		double laptop = 3000;// buy at June 10
+		double petrol = 50;
+		double airplaneTicket = 300;
+		double Insurance = 74;
+		double houseDebt = 650;//buy at 20 June
+		double carDebt = 494;
+		double HotelBooking = 200;// buy at 30 June
+		
+		double totalpayment = smartphone + laptop + petrol + airplaneTicket + Insurance + houseDebt + carDebt + HotelBooking;
+		double balance1 = limit1 - totalpayment;
+		
+		System.out.println("Your limit for CIMB e Credit Card is:" + balance1);
+		
+		// divide 12 is to know what minimum amount to pay for a month
+		double smartphoneDebt1 = (smartphone/12);
+		double laptopDebt1 = (laptop/12);
+		double petrolDebt1 = (petrol/12);
+		double airplaneTicketDebt1 = (airplaneTicket/12);
+		double InsuranceDebt1 = (Insurance/12);
+		double houseDebt1 = (houseDebt/12);
+		double carDebt1 = (carDebt/12);
+		double HotelBookingDebt1 = (HotelBooking/12);
+		double AllDebt1 = smartphoneDebt1 + laptopDebt1 + petrolDebt1 + airplaneTicketDebt1 + InsuranceDebt1 + houseDebt1 + carDebt1 + HotelBookingDebt1;
+		System.out.println("Total debt to be pay per monthly is RM:" + AllDebt1);
+		
+		
+		int currentmoney = 2000;
+		int newMoney = currentmoney + 3500; //3500 comes from job wages 
+		
+		System.out.println("Will you pay CIMB e Credit Card debt this month?");
+		System.out.println("Your unpaid Debt for this credit card is RM1000");
+		int  dicision = scanMe.nextInt();  // 1 is yes and 2 is no  // if choose 2 the debt will be grow bigger in next month
+		
+		
+		//you choose 1
+		//calculating percentage penalty to be paid for paying late
+		double DPR = (15.00/365);
+		
+		double MonthlyIntrestRate = DPR * 30;// * 30 because June have 30 days
+		double Debt1 = 1000 * 9;// coming from the debt that not being paid last month// its from 1 - 9 June
+		double Debt2 = 6000 * 9;// 8600 came from total of Debt1 and laptop // its from 10 - 19 June
+		double Debt3 = 7074 * 9;// its from 20 - 29 June
+		double Debt4 = 7768 * 1;// June 30
+		
+		double MonthlyInterest = (Debt1 + Debt2 + Debt3 + Debt4)/30;
+		double rate = (MonthlyInterest/100) * MonthlyIntrestRate;
+		
+		System.out.println("The rate is:" + rate);
+		
+		double monthlydebt = AllDebt1 + rate;
+		System.out.println("your charge payment for this month is RM:");
+		System.out.printf("%.2f",monthlydebt);
+		System.out.println();
+		
+		double moneyleft = newMoney - monthlydebt;
+		System.out.println("Your money left is RM:");
+		System.out.printf("%.2f",moneyleft);
+		
+		
+
+	}
+}
+
+4. Topic Housing Loan
+
+
+5. Topic Investment
