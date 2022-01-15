@@ -149,7 +149,7 @@ package assigmentGroup;
 
 import java.util.Scanner;
 
-public class CreditCard3 {
+public class assigment2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -162,28 +162,9 @@ public class CreditCard3 {
 		
 		Scanner scanMe = new Scanner (System.in);
 		
-		System.out.println("Enter your name:");// follow the name at credit cards
-		name = scanMe.nextLine();
-		
-		System.out.println("Enter your Credit Card Number");// to know what credit card uses
-		int CCnum1 = scanMe.nextInt();// type each CCnum 4 num // example 2456
-		int CCnum2 = scanMe.nextInt();
-		int CCnum3 = scanMe.nextInt();
-		int CCnum4 = scanMe.nextInt();
-		
-		System.out.println("Enter your expiration date");// to make sure the credit card still can use // example is 2721
-		int  ED = scanMe.nextInt();
-		
-		System.out.println("Enter your CCV");//to confirm that the credit card is correct
-		int CCV = scanMe.nextInt();
-		
-		
-		System.out.println("Acess granted");
-		
-		System.out.println("You choose CIMB e Credit Card");
-		
-
 		// purchases made in 1 month
+
+
 		double smartphone = 2000;
 		double laptop = 3000;// buy at June 10
 		double petrol = 50;
@@ -194,9 +175,7 @@ public class CreditCard3 {
 		double HotelBooking = 200;// buy at 30 June
 		
 		double totalpayment = smartphone + laptop + petrol + airplaneTicket + Insurance + houseDebt + carDebt + HotelBooking;
-		double balance1 = limit1 - totalpayment;
 		
-		System.out.println("Your limit for CIMB e Credit Card is:" + balance1);
 		
 		// divide 12 is to know what minimum amount to pay for a month
 		double smartphoneDebt1 = (smartphone/12);
@@ -210,43 +189,92 @@ public class CreditCard3 {
 		double AllDebt1 = smartphoneDebt1 + laptopDebt1 + petrolDebt1 + airplaneTicketDebt1 + InsuranceDebt1 + houseDebt1 + carDebt1 + HotelBookingDebt1;
 		System.out.println("Total debt to be pay per monthly is RM:" + AllDebt1);
 		
-		
-		int currentmoney = 2000;
-		int newMoney = currentmoney + 3500; //3500 comes from job wages 
-		
-		System.out.println("Will you pay CIMB e Credit Card debt this month?");
 		System.out.println("Your unpaid Debt for this credit card is RM1000");
-		int  dicision = scanMe.nextInt();  // 1 is yes and 2 is no  // if choose 2 the debt will be grow bigger in next month
-		
-		
-		//you choose 1
-		//calculating percentage penalty to be paid for paying late
-		double DPR = (15.00/365);
-		
-		double MonthlyIntrestRate = DPR * 30;// * 30 because June have 30 days
 		double Debt1 = 1000 * 9;// coming from the debt that not being paid last month// its from 1 - 9 June
 		double Debt2 = 6000 * 9;// 8600 came from total of Debt1 and laptop // its from 10 - 19 June
 		double Debt3 = 7074 * 9;// its from 20 - 29 June
 		double Debt4 = 7768 * 1;// June 30
-		
 		double MonthlyInterest = (Debt1 + Debt2 + Debt3 + Debt4)/30;
-		double rate = (MonthlyInterest/100) * MonthlyIntrestRate;
-		
-		System.out.println("The rate is:" + rate);
-		
-		double monthlydebt = AllDebt1 + rate;
-		System.out.println("your charge payment for this month is RM:");
-		System.out.printf("%.2f",monthlydebt);
-		System.out.println();
-		
-		double moneyleft = newMoney - monthlydebt;
-		System.out.println("Your money left is RM:");
-		System.out.printf("%.2f",moneyleft);
 		
 		
+		System.out.println("Enter your name:");// follow the name at credit cards
+		name = scanMe.nextLine();
+		
+		System.out.println("Enter your Credit Card Number");// to know what credit card uses
+		int CCnum1 = scanMe.nextInt();// type each CCnum 8 number // example 245675323
+		int CCnum2 = scanMe.nextInt();
+		
+		System.out.println("Enter your expiration date");// to make sure the credit card still can use // example is 2721
+		int  ED = scanMe.nextInt();
+		
+		System.out.println("Enter your CCV");
+		int CCV = scanMe.nextInt();
+		
+		
+		double currentmoney = 2000;
+		double newMoney = currentmoney + 3500; //3500 comes from job wages
+			
+		
+		if((CCnum1 == 11112222) && (CCnum2 == 33334444)) {
+			
+			System.out.println("You choose CIMB e Credit Card");
+			double balance = limit1 - totalpayment;
+			System.out.println("Your limit for CIMB e Credit Card is:" + balance);
+			
+		}
+		
+			
+			
+			else if((CCnum1 == 76589473) && (CCnum2 == 87643508)) {
+				System.out.println("You choose CIMB Petronas Platinum MasterCard");
+				double balance = limit2 - totalpayment;
+				double cashback = (0.07 / 100) * (50);
+				double balance2 = balance + cashback;
+				System.out.println("Your limit for CIMB Petronas Platinum MasterCard is:RM" + balance);
+				System.out.println("Your Cashback is:RM" + balance2);
+				
+			}
+			else if((CCnum1 == 50981234) && (CCnum2 == 11658925)) {
+				System.out.println("You choose Bank Rakyat Platinum Explore Credit Card-i");
+				double balance = limit3 - totalpayment;
+				double cashback = (((0.05/100) * (300)) + ((0.05/100) *(200)));
+				double balance2 = balance + cashback;
+				System.out.println("Your limit for Bank Rakyat Platinum Explore Credit Card-i is:" + balance);
+				System.out.println("Your Cashback is:RM" + balance2);
+				
+			}
+			else {
+				System.out.println("Unknown Credit Card");
+			}
+		
+		
+		int i = 0;
+		while (i <= 3) {
+			double DPR = 15/365;
+			
+			
+
+			if(i <= 3) {
+				double MonthlyIntrestRate = DPR * 30;// * 30 because June have 30 days
+				double rate = (MonthlyInterest/100) * MonthlyIntrestRate;
+				System.out.println("The rate is:" + rate);
+				double monthlydebt = AllDebt1 + rate;
+				System.out.println("your charge payment for this month is RM:");
+				System.out.printf("%.2f",monthlydebt);
+				System.out.println();
+				
+				double moneyleft = newMoney - monthlydebt;
+				System.out.println("Your money left is RM:");
+				System.out.printf("%.2f",moneyleft);
+				i++;
+
+			}
+	}
+	
 
 	}
 }
+
 
 4. Topic Housing Loan
 
